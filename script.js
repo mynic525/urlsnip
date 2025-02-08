@@ -60,6 +60,15 @@ signupForm.addEventListener('submit', async (e) => {
   }
 });
 
+const response = await fetch(`${backendUrl}/shorten`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'x-api-key': 'https://urlsnip.onrender.com/', // Include the API key
+  },
+  body: JSON.stringify({ longUrl, customAlias }),
+});
+
 // Sign In
 signinForm.addEventListener('submit', async (e) => {
   e.preventDefault();
